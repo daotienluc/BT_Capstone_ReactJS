@@ -1,0 +1,35 @@
+.carousel_custom {
+  .slick-next {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    opacity: unset;
+    border-radius: 50%;
+    inset-inline-end: -40px;
+    box-shadow: 0 1.2px 1.92251px rgba(0, 0, 0, 0.02),
+      0 2px 3.68135px rgba(0, 0, 0, 0.04), 0 1px 5px rgba(0, 0, 0, 0.05);
+
+    &::after {
+      color: #000;
+      top: 20px;
+      left: 18px;
+    }
+  }
+
+  .slick-prev {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    opacity: unset;
+    border-radius: 50%;
+    inset-inline-start: -37px;
+    box-shadow: 0 1.2px 1.92251px rgba(0, 0, 0, 0.02),
+      0 2px 3.68135px rgba(0, 0, 0, 0.04), 0 1px 5px rgba(0, 0, 0, 0.05);
+
+    &::after {
+      color: #000;
+      top: 20px;
+      left: 20px;
+    }
+  }
+}
