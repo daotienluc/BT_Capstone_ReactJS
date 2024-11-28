@@ -5,6 +5,7 @@ import {
   CheckOutlined,
   ClockCircleOutlined,
   FileImageOutlined,
+  FlagOutlined,
   HeartOutlined,
   HomeOutlined,
   ReloadOutlined,
@@ -14,12 +15,14 @@ import {
 import { Breadcrumb } from "antd";
 import avataImg from "./../../assets/img/avata.jpg";
 import detailsImg from "./../../assets/img/details.jpg";
-import details2Img from "./../../assets/img/details_2.jpg"
-import details3Img from "./../../assets/img/details_3.jpg"
+import details2Img from "./../../assets/img/details_2.jpg";
+import details3Img from "./../../assets/img/details_3.jpg";
 import CarouselCustom from "../../components/CarouselCustom/CarouselCustom";
 import CarouselItems from "../../components/CarouselCustom/CarouselItems";
 import { ButtonOutline } from "../../components/Button/ButtonCustom";
 import { Link } from "react-router-dom";
+import FooterTemplate from "../../templates/HomeTemplate/components/FooterTemplate";
+
 const Details = () => {
   const [selectedPackage, setSelectedPackage] = useState("Basic");
   const packages = {
@@ -57,6 +60,8 @@ const Details = () => {
       <HeaderTemplate />
       <div className="container my-10">
         <div className="flex gap-[58px]">
+
+          {/* Thông tin chi tiết */}
           <div className="w-3/5">
             <div>
               <Breadcrumb
@@ -76,6 +81,8 @@ const Details = () => {
                 ]}
               />
             </div>
+
+            {/* Thông tin chính */}
             <h2 className="text-3xl font-bold mb-4 mt-5">
               I will create graphic design of any kind you need
             </h2>
@@ -127,6 +134,8 @@ const Details = () => {
                 </>
               }
             />
+
+            {/* Giới thiệu về khóa học */}
             <h2 className="font-bold text-xl text-[#404145] mt-10">
               About this gig
             </h2>
@@ -169,6 +178,7 @@ const Details = () => {
               <p>Then let's get started!</p>
             </div>
 
+            {/* Thông tin tác giả */}
             <div className="space-y-5">
               <h2 className="font-bold text-xl text-[#404145] mt-10">
                 Get to know Seth S
@@ -248,7 +258,7 @@ const Details = () => {
                   <div className="p-1 border-2">
                     <img src={details2Img} alt="" className="w-full" />
                   </div>
-                  <div className="space-y-1 ml-3" >
+                  <div className="space-y-1 ml-3">
                     <p className="font-semibold">Legacy Films</p>
                     <p>Media</p>
                   </div>
@@ -257,7 +267,7 @@ const Details = () => {
                   <div className="p-1 border-2">
                     <img src={details2Img} alt="" className="w-full" />
                   </div>
-                  <div className="space-y-1 ml-3" >
+                  <div className="space-y-1 ml-3">
                     <p className="font-semibold">Legacy Films</p>
                     <p>Media</p>
                   </div>
@@ -266,7 +276,7 @@ const Details = () => {
                   <div className="p-1 border-2">
                     <img src={details2Img} alt="" className="w-full" />
                   </div>
-                  <div className="space-y-1 ml-3" >
+                  <div className="space-y-1 ml-3">
                     <p className="font-semibold">Legacy Films</p>
                     <p>Media</p>
                   </div>
@@ -275,42 +285,131 @@ const Details = () => {
                   <div className="p-1 border-2">
                     <img src={details2Img} alt="" className="w-full" />
                   </div>
-                  <div className="space-y-1 ml-3" >
+                  <div className="space-y-1 ml-3">
                     <p className="font-semibold">Legacy Films</p>
                     <p>Media</p>
                   </div>
                 </div>
               </div>
             </div>
-            <h2 className="font-bold text-xl text-[#404145] mt-10">My Portfolio</h2>
+
+            {/* Thông tin về My Portfolio */}
+            <h2 className="font-bold text-xl text-[#404145] mt-10">
+              My Portfolio
+            </h2>
             <div className="grid grid-cols-2 gap-5 p-5 border-2 rounded-lg my-5">
               <div>
                 <div className=" relative">
-                  <img src={details3Img} alt="" className="rounded-lg" /> 
+                  <img src={details3Img} alt="" className="rounded-lg" />
                   <button className="absolute right-8 bottom-7 bg-[#725A13] px-4 py-1 rounded-3xl text-white">
-                    <FileImageOutlined className="mr-1" />
-                    5
+                    <FileImageOutlined className="mr-1" />5
                   </button>
                 </div>
               </div>
               <div className="flex justify-center space-y-3 flex-col">
                 <h2 className="font-bold text-xl">7B CONSTRUCTION</h2>
-                <p>7B CONSTRUCTION is a general contracting company. Our Client</p>
+                <p>
+                  7B CONSTRUCTION is a general contracting company. Our Client
+                </p>
                 <div>
-                  <button className="px-4 py-1 border-2 rounded-3xl">Logo Design</button>
+                  <button className="px-4 py-1 border-2 rounded-3xl">
+                    Logo Design
+                  </button>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-5 gap-5">
-              <img src={details3Img} alt="" className=" rounded-lg border border-black" />
+              <img
+                src={details3Img}
+                alt=""
+                className=" rounded-lg border border-black"
+              />
               <img src={details3Img} alt="" className=" rounded-lg" />
               <img src={details3Img} alt="" className=" rounded-lg" />
               <img src={details3Img} alt="" className=" rounded-lg" />
               <img src={details3Img} alt="" className=" rounded-lg" />
             </div>
 
+            {/* Thông tin về các khóa học được đề xuất */}
+            <div className="p-5 bg-gray-100 mt-10">
+              <h2 className="font-bold text-xl text-[#404145] my-5">
+                Recommended for you 
+              </h2>
+              <CarouselCustom
+              className="!h-[200px]"
+              content={
+                <>
+                  <CarouselItems image={detailsImg} />
+                </>
+              }
+            />
+            
+            </div>
+
+            {/* Thông tin về Reviews */}
+            <h2 className="font-bold text-xl text-[#404145] mt-10 mb-5">
+              Reviews
+            </h2>
+            <div className="p-5 border-2 rounded-lg">
+              <div className="flex gap-5 border-b-2 pb-5">
+                <div>
+                  <img
+                    src={avataImg}
+                    alt=""
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                </div>
+                <div className="flex justify-between flex-col">
+                  <p className="font-bold text-lg">drmitchgibson</p>
+                  <p className="flex items-center gap-2">
+                    <FlagOutlined />{" "}
+                    <span className="text-xs text-[#74767e] font-medium">
+                      United States
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div className="flex gap-5 items-center mt-5">
+                  <div className="space-x-2">
+                    <StarOutlined />
+                    <StarOutlined />
+                    <StarOutlined />
+                    <StarOutlined />
+                    <StarOutlined />
+                    <span className="font-bold">5</span>
+                  </div>
+                  <div className="text-xs text-[#74767e] font-medium">
+                    1 month ago
+                  </div>
+                </div>
+                <p className="text-[#74767e] font-medium line-clamp-4 my-5">
+                  Ojo created a very professional logo for my independent
+                  consulting LLC in just a couple of days! I selected the 3
+                  designs option and I loved one of them without needing any
+                  revisions! Thank you so much! Ojo created a very professional
+                  logo for my independent consulting LLC in just a couple of
+                  days! I selected the 3 designs option and I loved one of them
+                  without needing any revisions! Thank you so much!
+                </p>
+                <div className="flex text-[#74767e] gap-10">
+                  <div>
+                    <p className="font-bold">$100-$200</p>
+                    <p className="font-medium">Price</p>
+                  </div>
+                  <div>
+                    <div>
+                      <p className="font-bold">5 days</p>
+                      <p className="font-medium">Duration</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* Các gói */}
           <div className="w-2/5">
             <div className=" sticky top-10 bg-white z-10">
               <div className="space-x-3 mb-5 flex justify-end">
@@ -384,6 +483,7 @@ const Details = () => {
           </div>
         </div>
       </div>
+      <FooterTemplate />
     </>
   );
 };
