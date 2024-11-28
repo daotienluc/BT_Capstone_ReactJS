@@ -21,8 +21,6 @@ const HeaderTemplate = () => {
     matchPath({ path: "/details/:id" }, location.pathname) ||
     matchPath({ path: "/profile/:id" }, location.pathname) ||
     matchPath({ path: "/settings/:id" }, location.pathname);
-
-  console.log(location);
   const { width } = useViewPort();
   const [keyWord, setKeyWord] = useState("");
   const [open, setOpen] = useState(false);

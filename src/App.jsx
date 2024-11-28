@@ -11,7 +11,7 @@ import ManagerUser from "./templates/AdminTemplate/ManagerUser/ManagerUser";
 import ManagerComment from "./templates/AdminTemplate/ManagerComment/ManagerComment";
 import SignUp from "./pages/SignUp/SignUp";
 import SearchResults from "./pages/SearchResults/SearchResults";
-import Details from "./pages/Details/Details";
+import DetailTemplate from "./pages/Details/DetailTemplate";
 
 export const NotificationContext = createContext();
 
@@ -44,7 +44,7 @@ const arrRoutes = [
   },
   {
     path: pathDefault.Details,
-    element: <Details />,
+    element: <DetailTemplate />,
   },
 
   {
