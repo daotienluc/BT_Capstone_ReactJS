@@ -67,7 +67,6 @@ const FormAddUser = ({ handleCloesModel, layDanhSachNguoiDung }) => {
         .min(2, "Vui lòng điền ít nhất 2 chứng chỉ"),
     }),
     onSubmit: (values, { resetForm }) => {
-      console.log("a");
       console.log(values);
       nguoidungServices
         .themNguoiDung(values)

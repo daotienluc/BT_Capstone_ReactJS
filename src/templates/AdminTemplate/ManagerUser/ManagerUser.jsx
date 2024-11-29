@@ -93,9 +93,13 @@ const ManagerUser = () => {
               okText="Yes"
               cancelText="No"
             >
-              <Button danger>Xóa</Button>
+              <Button className="bg-red-500 text-white border-red-500">
+                Xóa
+              </Button>
             </Popconfirm>
-            <Button className="border-yellow-500 text-yellow-500">Sửa</Button>
+            <Button className="text-white border-yellow-500  bg-yellow-500">
+              Sửa
+            </Button>
           </div>
         );
       },

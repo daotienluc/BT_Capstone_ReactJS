@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Avatar, Button, Popconfirm, Table, Tag } from "antd";
+import { Avatar, Button, Modal, Popconfirm, Table, Tag } from "antd";
 import { NotificationContext } from "../../../App";
 import { nguoidungServices } from "../../../services/nguoidung.services";
+import FormAddJob from "./components/FormAddJob/FormAddJob";
 
 const ManagerJob = () => {
   const confirm = (e) => {
@@ -12,8 +13,11 @@ const ManagerJob = () => {
     console.log(e);
     message.error("Click on No");
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const data = JSON.parse(localStorage.getItem("userInfo"));
+
+  console.log(data);
 
   const handleNotification = useContext(NotificationContext);
 
@@ -107,6 +111,8 @@ const ManagerJob = () => {
                   .xoaJob(record.id, data.token)
                   .then((res) => {
                     console.log(res);
+                    layDanhSachJob();
+                    handleNotification("success", res.data.message);
                   })
                   .catch((err) => {
                     console.log(err);
@@ -133,10 +139,23 @@ const ManagerJob = () => {
   return (
     <div className="space-y-3">
       <h1 className="font-bold text-3xl mb-3">Danh sách công việc</h1>
-      <Button variant="solid" className="bg-green-500 text-white" size="large">
+      <Button
+        onClick={() => setIsModalOpen(true)}
+        variant="solid"
+        className="bg-green-500 text-white"
+        size="large"
+      >
         Thêm công việc
       </Button>
       <Table dataSource={listJob} columns={columns} />
+      <Modal footer={null} title="Thêm công việc" open={isModalOpen}>
+        <FormAddJob
+          handleCloesModel={() => {
+            setIsModalOpen(false);
+          }}
+          layDanhSachJob={layDanhSachJob}
+        />
+      </Modal>
     </div>
   );
 };

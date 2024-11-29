@@ -10,10 +10,24 @@ export const nguoidungServices = {
   themNguoiDung: (data) => {
     return http.post("/users", data);
   },
-  layDanhSachJob: async () => {
+  layDanhSachJob: () => {
     return http.get("/cong-viec");
   },
   xoaJob: (id, token) => {
-    return http.delete(`cong-viec/${id}`, { headers: token });
+    return http.delete(`/cong-viec/${id}`, {
+      headers: {
+        token: token,
+      },
+    });
+  },
+  themJob: (data, token) => {
+    return http.post(`/cong-viec`, data, {
+      headers: {
+        token: token,
+      },
+    });
+  },
+  layDanhSachBinhLuan: () => {
+    return http.get("/binh-luan");
   },
 };
