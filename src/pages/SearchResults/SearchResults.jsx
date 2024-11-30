@@ -29,7 +29,7 @@ const SearchResults = () => {
   return (
     <>
       <HeaderTemplate />
-      <div className="container mt-20">
+      <div className="container">
         <h2 className="text-3xl py-10">
           Results for <span className="font-bold">{keyword}</span>
         </h2>

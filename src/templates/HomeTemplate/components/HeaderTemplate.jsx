@@ -19,8 +19,7 @@ const HeaderTemplate = () => {
   const location = useLocation();
   const isDetailsPage =
     matchPath({ path: "/details/:id" }, location.pathname) ||
-    matchPath({ path: "/profile/:id" }, location.pathname) ||
-    matchPath({ path: "/settings/:id" }, location.pathname);
+    matchPath({ path: "/search-results" }, location.pathname);
   const { width } = useViewPort();
   const [keyWord, setKeyWord] = useState("");
   const [open, setOpen] = useState(false);
