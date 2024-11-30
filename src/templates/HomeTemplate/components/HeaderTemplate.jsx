@@ -73,6 +73,12 @@ const HeaderTemplate = () => {
     setOpen(true);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && keyWord.trim()) {
+      navigate(`/search-results?keyword=${encodeURIComponent(keyWord)}`);
+    }
+  };
+
   return (
     <header
       className={
@@ -99,6 +105,7 @@ const HeaderTemplate = () => {
             <div className="w-full">
               {width > 576 && (
                 <InputSearch
+                  onKeyDown={handleKeyDown}
                   value={keyWord}
                   handleClick={handleClickInputSearch}
                   handleChange={handleChangeKeyWord}
