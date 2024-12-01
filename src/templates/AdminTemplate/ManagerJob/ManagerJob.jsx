@@ -148,7 +148,14 @@ const ManagerJob = () => {
         Thêm công việc
       </Button>
       <Table dataSource={listJob} columns={columns} />
-      <Modal footer={null} title="Thêm công việc" open={isModalOpen}>
+      <Modal
+        footer={null}
+        title="Thêm công việc"
+        open={isModalOpen}
+        onCancel={() => {
+          setIsModalOpen(false);
+        }}
+      >
         <FormAddJob
           handleCloesModel={() => {
             setIsModalOpen(false);
