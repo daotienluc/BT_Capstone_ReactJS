@@ -27,7 +27,6 @@ const Services = () => {
   useEffect(() => {
     SkillServices.skill()
       .then((res) => {
-        console.log(res.data.content);
         setSkill(res.data.content);
       })
       .catch((err) => {
@@ -37,7 +36,7 @@ const Services = () => {
 
   return (
     <div className="container">
-      <div className="grid grid-cols-9 gap-5">
+      <div className="grid grid-cols-3 gap-5 md:grid-cols-4 lg:grid-cols-9">
         {skill.splice(0, 9).map((item, index) => (
           <div key={index}>
             <ServicesItem

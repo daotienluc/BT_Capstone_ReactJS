@@ -12,7 +12,7 @@ import Freelancers from "./components/HomePage/Freelancers/Freelancers";
 
 const HomeTemplate = () => {
   return (
-    <>
+    <div className="overflow-hidden">
       <HeaderTemplate />
       <Banner />
       <Services />
@@ -23,7 +23,7 @@ const HomeTemplate = () => {
       <Freelancers />
       <FooterTemplate />
       <Outlet />
-    </>
+    </div>
   );
 };
 

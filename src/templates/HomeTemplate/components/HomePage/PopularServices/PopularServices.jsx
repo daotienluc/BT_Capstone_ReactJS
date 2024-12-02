@@ -18,7 +18,7 @@ const PopularServices = () => {
       <CarouselCustom
         className=""
         children={
-          <div className="!grid grid-cols-6 gap-5 !h-[260px] overflow-hidden">
+          <div className="!grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-5 !h-[260px] overflow-hidden">
             <CarouselItems
               backgroundColor="bg-[#00732E]"
               content="Website Development"
