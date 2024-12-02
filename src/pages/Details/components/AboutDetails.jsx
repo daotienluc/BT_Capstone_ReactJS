@@ -1,27 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import { dataChiTietCongViec } from "../DetailTemplate";
 
 const AboutDetails = () => {
+  const { moTa, moTaNgan } = useContext(dataChiTietCongViec);
+
   return (
     <>
       <h2 className="font-bold text-xl text-[#404145] mt-10">About this gig</h2>
       <div className="text-[#62646A] space-y-5 font-medium">
         <p>Gig Title </p>
-        <p>
-          I will design your website using any platform of your choice including
-          Wix, Shopify, Wordpress, Squarespace, and Weebly.
-        </p>
+        <p>{moTaNgan}</p>
         <p>Description</p>
         <p>
           Looking for a professional website? Then youve come to the right
           place!{" "}
         </p>
-        <p>
-          My name is Seth and as your experienced website creator, I will help
-          bring your vision to life. I have helped countless clients worldwide
-          and I am excited for our future partnership. By working together, we
-          will bring your website vision to life the way you love it and will be
-          proud of!
-        </p>
+        <p>{moTa}</p>
         <p>Why choose Me?</p>
         <ul className="list-disc mx-10">
           <li>Countless happy clients from around the world</li>

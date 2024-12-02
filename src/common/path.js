@@ -7,5 +7,5 @@ export const pathDefault = {
   managerJob: "/admin/manager-job",
   managerComment: "/admin/manager-comment",
   SearchResults: "/search-results",
-  Details: "/details/:id",
+  Details: "/details/:id/:nguoiTao",
 };

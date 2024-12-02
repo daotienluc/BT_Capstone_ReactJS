@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useContext } from "react";
 import Icons from "../../../components/Icons";
 import { Link, matchPath, useLocation, useNavigate } from "react-router-dom";
 import { pathDefault } from "./../../../common/path";
@@ -9,16 +9,20 @@ import {
 } from "../../../components/Button/ButtonCustom";
 import { GlobalOutlined } from "@ant-design/icons";
 import InputSearch from "../../../components/Input/InputSearch/InputSearch";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { congviecService } from "../../../services/congviec.services";
 import { useDebounce } from "use-debounce";
 import { Dropdown } from "antd";
 import useViewPort from "../../../hooks/useViewPort";
+import DropdownSearchResults from "../../../components/Dropdown/DropdownSearchResults";
+import { handleDeleteUser } from "../../../redux/Slice/User.Slice";
+import { NotificationContext } from "../../../App";
 
 const HeaderTemplate = () => {
+  const handleNotification = useContext(NotificationContext);
   const location = useLocation();
   const isDetailsPage =
-    matchPath({ path: "/details/:id" }, location.pathname) ||
+    matchPath({ path: "/details/:id/:nguoiTao" }, location.pathname) ||
     matchPath({ path: "/search-results" }, location.pathname);
   const { width } = useViewPort();
   const [keyWord, setKeyWord] = useState("");
@@ -27,6 +31,8 @@ const HeaderTemplate = () => {
   const [value] = useDebounce(keyWord, 1000);
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.UserSlice);
+
+  const dispatch = useDispatch();
 
   // useMemo: quản lý các biến giúp kiểm tra khi nào thì nên tạo mới
   // useCallback: quản lý các function
@@ -78,6 +84,24 @@ const HeaderTemplate = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("userInfo");
+
+    handleNotification("success", "Đăng xuất thành công");
+
+    // Cập nhật Redux store
+    dispatch(handleDeleteUser());
+  };
+
+  const groupedItems = [
+    {
+      items: ["Profile", "Settings"],
+    },
+    {
+      items: [<p onClick={() => handleLogout()}>Đăng xuất</p>],
+    },
+  ];
+
   return (
     <header
       className={
@@ -120,7 +144,10 @@ const HeaderTemplate = () => {
           <ButtonGhost content="English" icon={<GlobalOutlined />} />
           <ButtonGhost content="Become a Seller" />
           {user ? (
-            <span>{user.name}</span>
+            <DropdownSearchResults
+              buttonContent={user.name}
+              groupedItems={groupedItems}
+            />
           ) : (
             <>
               <ButtonGhost

@@ -4,6 +4,9 @@ export const nguoidungServices = {
   layDanhSachNguoiDung: () => {
     return http.get("/users");
   },
+  layDanhSachNguoiDungTheoId: (id) => {
+    return http.get(`/users/${id}`);
+  },
   xoaDanhSachNguoiDung: (id) => {
     return http.delete(`/users?id=${id}`);
   },

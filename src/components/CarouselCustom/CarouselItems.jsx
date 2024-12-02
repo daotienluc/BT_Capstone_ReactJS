@@ -12,7 +12,11 @@ const CarouselItems = ({ backgroundColor, content, image }) => {
           {content}
         </h2>
         <div>
-          <img src={image} alt="" className="rounded-2xl w-full object-cover" />
+          <img
+            src={image}
+            alt=""
+            className="rounded-2xl w-full h-full overflow-hidden"
+          />
         </div>
       </Link>
     </>
