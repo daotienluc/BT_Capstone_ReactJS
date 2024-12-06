@@ -7,12 +7,12 @@ import { Input } from "antd";
 import { ButtonOutline } from "../../components/Button/ButtonCustom";
 import Lottie from "react-lottie";
 import * as animationData from "./../../assets/animation/loginAnimation.json";
-import * as Yup from "yup";
 import { useFormik } from "formik";
 import { authService } from "../../services/auth.service";
 import { NotificationContext } from "../../App";
 import { useDispatch } from "react-redux";
 import { handleUpdateUser } from "../../redux/Slice/User.Slice";
+import * as yup from "yup";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -42,11 +42,12 @@ const SignIn = () => {
           });
       },
       // validationSchema
-      validationSchema: Yup.object({
-        email: Yup.string()
+      validationSchema: yup.object({
+        email: yup
+          .string()
           .email("Vui lòng nhập đúng định dạng Email")
           .required("Vui lòng không bỏ trống"),
-        password: Yup.string().required("Vui lòng không bỏ trống"),
+        password: yup.string().required("Vui lòng không bỏ trống"),
       }),
     });
 
