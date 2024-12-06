@@ -10,7 +10,7 @@ import { Button, Layout, Menu, theme } from "antd";
 import Icons from "../../components/Icons";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { pathDefault } from "../../common/path";
-import "./adminTemplate.scss";
+import "./AdminTemplate.scss";
 
 const { Header, Sider, Content } = Layout;
 const AdminTemplate = () => {
