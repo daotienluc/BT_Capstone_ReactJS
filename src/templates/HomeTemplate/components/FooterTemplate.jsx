@@ -1,6 +1,15 @@
 import React from "react";
 import Icons from "../../../components/Icons";
-import {DollarOutlined, FacebookOutlined, GlobalOutlined, InstagramOutlined, LinkedinOutlined, PinterestOutlined, TikTokOutlined, TwitterOutlined } from "@ant-design/icons"
+import {
+  DollarOutlined,
+  FacebookOutlined,
+  GlobalOutlined,
+  InstagramOutlined,
+  LinkedinOutlined,
+  PinterestOutlined,
+  TikTokOutlined,
+  TwitterOutlined,
+} from "@ant-design/icons";
 
 const FooterTemplate = () => {
   return (
@@ -93,11 +102,11 @@ const FooterTemplate = () => {
             <PinterestOutlined />
             <TwitterOutlined />
           </div>
-          <div className="flex items-center gap-2 font-bold"> 
+          <div className="flex items-center gap-2 font-bold">
             <GlobalOutlined />
             <p>English</p>
           </div>
-          <div className="flex items-center gap-2 font-bold"> 
+          <div className="flex items-center gap-2 font-bold">
             <DollarOutlined />
             <p>USD</p>
           </div>
