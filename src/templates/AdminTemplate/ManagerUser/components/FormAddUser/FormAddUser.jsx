@@ -6,7 +6,7 @@ import { Button, DatePicker } from "antd";
 import { useFormik } from "formik";
 import { nguoidungServices } from "../../../../../services/nguoidung.services";
 import { NotificationContext } from "../../../../../App";
-import * as Yup from "Yup";
+import * as Yup from "yup";
 
 const FormAddUser = ({ handleCloesModel, layDanhSachNguoiDung }) => {
   const [skill, setSkill] = useState([]);

@@ -11,6 +11,8 @@ import Icons from "../../components/Icons";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { pathDefault } from "../../common/path";
 import "./AdminTemplate.scss";
+import * as Yup from "yup";
+import useViewPort from "../../hooks/useViewPort";
 
 const { Header, Sider, Content } = Layout;
 const AdminTemplate = () => {
