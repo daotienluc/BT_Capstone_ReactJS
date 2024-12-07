@@ -1,6 +1,10 @@
 import React from "react";
 import { FileImageOutlined } from "@ant-design/icons";
 import details3Img from "./../../../assets/img/details_3.jpg";
+import details4Img from "./../../../assets/img/details_4.jpg";
+import details5Img from "./../../../assets/img/details_5.jpg";
+import details6Img from "./../../../assets/img/details_6.jpg";
+import details7Img from "./../../../assets/img/details_7.jpg";
 
 const MyPortfolioDetails = () => {
   return (
@@ -32,10 +36,10 @@ const MyPortfolioDetails = () => {
           alt=""
           className=" rounded-lg border border-black"
         />
-        <img src={details3Img} alt="" className=" rounded-lg" />
-        <img src={details3Img} alt="" className=" rounded-lg" />
-        <img src={details3Img} alt="" className=" rounded-lg" />
-        <img src={details3Img} alt="" className=" rounded-lg" />
+        <img src={details4Img} alt="" className=" rounded-lg" />
+        <img src={details5Img} alt="" className=" rounded-lg" />
+        <img src={details6Img} alt="" className=" rounded-lg" />
+        <img src={details7Img} alt="" className=" rounded-lg" />
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import HeaderTemplate from "./../../templates/HomeTemplate/components/HeaderTemp
 import FooterTemplate from "./../../templates/HomeTemplate/components/FooterTemplate";
 import DropdownHeader from "../../components/Dropdown/DropdownHeader";
 import DropdownSearchResults from "../../components/Dropdown/DropdownSearchResults";
-import { Switch } from "antd";
+import { Pagination, Switch } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
@@ -29,7 +29,7 @@ const SearchResults = () => {
   return (
     <>
       <HeaderTemplate />
-      <div className="container mt-20">
+      <div className="container">
         <h2 className="text-3xl py-10">
           Results for <span className="font-bold">{keyword}</span>
         </h2>
@@ -56,21 +56,22 @@ const SearchResults = () => {
         <div className="grid grid-cols-4 gap-5 mb-10">
           {results.map((item, index) => (
             <div key={index}>
-              <img
-                src={item.congViec.hinhAnh}
-                alt=""
-                className="w-full object-cover h-[196px] rounded-lg"
-              />
+              <Link to={`/details/${item.id}/${item.congViec.nguoiTao}`}>
+                <img
+                  src={item.congViec.hinhAnh}
+                  alt=""
+                  className="w-full object-cover h-[196px] rounded-lg"
+                />
+              </Link>
               <div className="space-y-2 mt-3">
                 <div className="flex justify-between">
                   <div className="flex items-center gap-3">
-                    <Link>
-                      <img
-                        src={item.congViec.hinhAnh}
-                        alt=""
-                        className="w-7 h-7 rounded-full"
-                      />
-                    </Link>
+                    <img
+                      src={item.congViec.hinhAnh}
+                      alt=""
+                      className="w-7 h-7 rounded-full hover:cursor-pointer"
+                    />
+
                     <p className="text-sm">
                       Ad by{" "}
                       <span className="font-bold hover:underline">
@@ -83,7 +84,7 @@ const SearchResults = () => {
                   </div>
                 </div>
                 <Link
-                  to={`/details/${item.id}`}
+                  to={`/details/${item.id}/${item.congViec.nguoiTao}`}
                   className="line-clamp-2 hover:underline"
                 >
                   {item.congViec.moTa}
@@ -101,6 +102,9 @@ const SearchResults = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center mb-10">
+          <Pagination defaultCurrent={1} total={50} />
         </div>
       </div>
       <FooterTemplate />

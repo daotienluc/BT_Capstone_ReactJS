@@ -10,7 +10,7 @@ import * as animationData from "./../../assets/animation/loginAnimation.json";
 import { useFormik } from "formik";
 import { authService } from "../../services/auth.service";
 import { NotificationContext } from "../../App";
-import * as Yup from "Yup";
+import * as yup from "yup";
 
 const SignUp = () => {
   const handleNotification = useContext(NotificationContext);

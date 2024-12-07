@@ -2,11 +2,12 @@ import { Dropdown } from "antd";
 import React, { useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 
-const DropdownHeader = ({ buttonContent = "dropdown", items }) => {
+const DropdownHeader = ({ buttonContent = "dropdown", items, className }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <Dropdown
+      className={className}
       menu={{
         items: [{ label: "abc" }],
       }}
@@ -22,7 +23,7 @@ const DropdownHeader = ({ buttonContent = "dropdown", items }) => {
         {buttonContent}
         <span className="ml-2">
           <DownOutlined
-            className={`${open ? "rotate-180" : "rotate-0"} duration-300`}
+            className={`${open ? "rotate-180" : "rotate-0"} duration-300 `}
           />
         </span>
       </button>
