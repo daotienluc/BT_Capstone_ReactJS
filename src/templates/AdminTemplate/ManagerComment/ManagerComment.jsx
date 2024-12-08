@@ -2,6 +2,7 @@ import { Button, Popconfirm, Table } from "antd";
 import Column from "antd/es/table/Column";
 import React, { useEffect, useState } from "react";
 import { nguoidungServices } from "../../../services/nguoidung.services";
+import useViewPort from "../../../hooks/useViewPort";
 
 const ManagerComment = () => {
   const [listComment, setListComment] = useState([]);
@@ -43,7 +44,7 @@ const ManagerComment = () => {
       key: "7",
       render: (text, recod, index) => {
         return (
-          <div className="space-x-3">
+          <div className=" flex col-span-2 space-x-3">
             <Popconfirm
               title="Thực hiện xóa người dùng"
               description="Bạn có chắc chắn muốn xóa người dùng không ?"
@@ -77,6 +78,7 @@ const ManagerComment = () => {
       },
     },
   ];
+  const { width } = useViewPort();
   const layDanhSachComment = () => {
     nguoidungServices
       .layDanhSachBinhLuan()
@@ -93,7 +95,11 @@ const ManagerComment = () => {
   return (
     <div>
       <h1 className="font-bold text-3xl mb-3">Danh sách bình luận</h1>
-      <Table columns={columns} dataSource={listComment} />
+      <Table
+        scroll={{ x: width < 1024 ? width : "" }}
+        columns={columns}
+        dataSource={listComment}
+      />
     </div>
   );
 };

@@ -21,12 +21,12 @@
       background-color: unset !important;
 
       a {
-        @apply text-white;
+        color: white;
       }
-    }
 
-    .ant-menu-item-selected {
-      background-color: unset;
+      .ant-menu-item-selected {
+        background-color: unset;
+      }
     }
   }
 }

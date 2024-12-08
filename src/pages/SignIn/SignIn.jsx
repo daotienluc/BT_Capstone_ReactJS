@@ -7,7 +7,7 @@ import { Input } from "antd";
 import { ButtonOutline } from "../../components/Button/ButtonCustom";
 import Lottie from "react-lottie";
 import * as animationData from "./../../assets/animation/loginAnimation.json";
-import * as Yup from "Yup";
+import * as Yup from "yup";
 import { useFormik } from "formik";
 import { authService } from "../../services/auth.service";
 import { NotificationContext } from "../../App";

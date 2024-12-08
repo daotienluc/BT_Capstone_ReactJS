@@ -3,6 +3,7 @@ import { nguoidungServices } from "../../../services/nguoidung.services";
 import { Avatar, Button, Modal, Popconfirm, Table, Tag } from "antd";
 import { NotificationContext } from "../../../App";
 import FormAddUser from "./components/FormAddUser/FormAddUser";
+import useViewPort from "../../../hooks/useViewPort";
 
 const ManagerUser = () => {
   const [listNguoiDung, setListNguoiDung] = useState([]);
@@ -71,7 +72,7 @@ const ManagerUser = () => {
       key: "6",
       render: (text, recod, index) => {
         return (
-          <div className="space-x-3">
+          <div className=" flex col-span-2 space-x-3">
             <Popconfirm
               title="Thực hiện xóa người dùng"
               description="Bạn có chắc chắn muốn xóa người dùng không ?"
@@ -105,6 +106,7 @@ const ManagerUser = () => {
       },
     },
   ];
+  const { width } = useViewPort();
 
   useEffect(() => {
     layDanhSachNguoiDung();
@@ -122,7 +124,12 @@ const ManagerUser = () => {
       >
         Thêm người dùng
       </Button>
-      <Table columns={columns} dataSource={listNguoiDung} />;
+      <Table
+        scroll={{ x: width < 1024 ? width : "" }}
+        columns={columns}
+        dataSource={listNguoiDung}
+      />
+      ;
       <Modal
         // onClose={() => {
         //   setIsModalOpen(false);

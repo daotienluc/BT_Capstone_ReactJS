@@ -4,7 +4,7 @@ import { nguoidungServices } from "../../../../../services/nguoidung.services";
 import InputCustom from "../../../../../components/Input/InputCustom/InputCustom";
 import { Button } from "antd";
 import { NotificationContext } from "../../../../../App";
-import * as Yup from "Yup";
+import * as Yup from "yup";
 const FormAddJob = ({ handleCloesModel, layDanhSachJob }) => {
   const handleNotification = useContext(NotificationContext);
   const data = JSON.parse(localStorage.getItem("userInfo"));

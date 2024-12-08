@@ -3,6 +3,7 @@ import { Avatar, Button, Modal, Popconfirm, Table, Tag } from "antd";
 import { NotificationContext } from "../../../App";
 import { nguoidungServices } from "../../../services/nguoidung.services";
 import FormAddJob from "./components/FormAddJob/FormAddJob";
+import useViewPort from "../../../hooks/useViewPort";
 
 const ManagerJob = () => {
   const confirm = (e) => {
@@ -22,6 +23,7 @@ const ManagerJob = () => {
   const handleNotification = useContext(NotificationContext);
 
   const [listJob, setListJob] = useState([]);
+  const { width } = useViewPort();
 
   const layDanhSachJob = () => {
     nguoidungServices
@@ -147,7 +149,11 @@ const ManagerJob = () => {
       >
         Thêm công việc
       </Button>
-      <Table dataSource={listJob} columns={columns} />
+      <Table
+        scroll={{ x: width < 1024 ? width : "" }}
+        dataSource={listJob}
+        columns={columns}
+      />
       <Modal
         footer={null}
         title="Thêm công việc"
