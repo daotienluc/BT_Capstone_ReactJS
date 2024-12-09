@@ -53,7 +53,7 @@ const SearchResults = () => {
             <DropdownHeader buttonContent="Relevance" />
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-5 mb-10">
+        <div className="grid lg:grid-cols-4 grid-cols-2  gap-5 mb-10">
           {results.map((item, index) => (
             <div key={index}>
               <Link to={`/details/${item.id}/${item.congViec.nguoiTao}`}>

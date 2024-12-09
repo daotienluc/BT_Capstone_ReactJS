@@ -3,6 +3,7 @@ import { nguoidungServices } from "../../../services/nguoidung.services";
 import { Avatar, Button, Modal, Popconfirm, Table, Tag } from "antd";
 import { NotificationContext } from "../../../App";
 import FormAddUser from "./components/FormAddUser/FormAddUser";
+import useViewPort from "../../../hooks/useViewPort";
 
 const ManagerUser = () => {
   const [listNguoiDung, setListNguoiDung] = useState([]);
@@ -71,7 +72,7 @@ const ManagerUser = () => {
       key: "6",
       render: (text, recod, index) => {
         return (
-          <div className="space-x-3">
+          <div className=" flex col-span-2 space-x-3">
             <Popconfirm
               title="Thực hiện xóa người dùng"
               description="Bạn có chắc chắn muốn xóa người dùng không ?"
@@ -87,18 +88,25 @@ const ManagerUser = () => {
                     handleNotification("error", err.response.data.content);
                   });
               }}
-              onCancel={() => {}}
+              onCancel={() => {
+                setIsModalOpen(false);
+              }}
               okText="Yes"
               cancelText="No"
             >
-              <Button danger>Xóa</Button>
+              <Button className="bg-red-500 text-white border-red-500">
+                Xóa
+              </Button>
             </Popconfirm>
-            <Button className="border-yellow-500 text-yellow-500">Sửa</Button>
+            <Button className="text-white border-yellow-500  bg-yellow-500">
+              Sửa
+            </Button>
           </div>
         );
       },
     },
   ];
+  const { width } = useViewPort();
 
   useEffect(() => {
     layDanhSachNguoiDung();
@@ -112,16 +120,27 @@ const ManagerUser = () => {
       <Button
         onClick={() => setIsModalOpen(true)}
         variant="solid"
-        className="bg-green-500"
+        className="bg-green-500 text-white"
       >
         Thêm người dùng
       </Button>
-      <Table columns={columns} dataSource={listNguoiDung} />;
+      <Table
+        scroll={{ x: width < 1024 ? width : "" }}
+        columns={columns}
+        dataSource={listNguoiDung}
+      />
+      ;
       <Modal
-        onClose={() => {
+        // onClose={() => {
+        //   setIsModalOpen(false);
+        // }}
+        // title="Basic Modal"
+        // open={isModalOpen}
+        onCancel={() => {
           setIsModalOpen(false);
         }}
-        title="Basic Modal"
+        footer={null}
+        title="Thêm người dùng"
         open={isModalOpen}
       >
         <FormAddUser

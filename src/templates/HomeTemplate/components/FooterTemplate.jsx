@@ -1,11 +1,29 @@
 import React from "react";
 import Icons from "../../../components/Icons";
-import {DollarOutlined, FacebookOutlined, GlobalOutlined, InstagramOutlined, LinkedinOutlined, PinterestOutlined, TikTokOutlined, TwitterOutlined } from "@ant-design/icons"
+import {
+  DollarOutlined,
+  FacebookOutlined,
+  GlobalOutlined,
+  InstagramOutlined,
+  LinkedinOutlined,
+  PinterestOutlined,
+  TikTokOutlined,
+  TwitterOutlined,
+} from "@ant-design/icons";
+import useViewPort from "../../../hooks/useViewPort";
+import FooterViewPort from "./FooterViewPort";
 
+// moblie - > tablet -> desktop
+// set --- > khong set -> khong set  (lay mobile)
+// khong set - > set -> khong set ()
 const FooterTemplate = () => {
-  return (
+  const { width } = useViewPort();
+
+  return width < 1024 ? (
+    <FooterViewPort />
+  ) : (
     <div className="container border-t-2">
-      <div className="grid grid-cols-5 gap-5 mt-10 pb-10 border-b-2">
+      <div className="grid  grid-cols-5 gap-5 mt-10 pb-10 border-b-2 ">
         <div className="space-y-5 text-[#74767e] font-bold">
           <h2>Categories</h2>
           <ul className="space-y-4 font-medium">
@@ -93,11 +111,11 @@ const FooterTemplate = () => {
             <PinterestOutlined />
             <TwitterOutlined />
           </div>
-          <div className="flex items-center gap-2 font-bold"> 
+          <div className="flex items-center gap-2 font-bold">
             <GlobalOutlined />
             <p>English</p>
           </div>
-          <div className="flex items-center gap-2 font-bold"> 
+          <div className="flex items-center gap-2 font-bold">
             <DollarOutlined />
             <p>USD</p>
           </div>

@@ -11,6 +11,7 @@ import IntroduceDetails from "./components/IntroduceDetails";
 import { congviecService } from "../../services/congviec.services";
 import { useParams } from "react-router-dom";
 import { nguoidungServices } from "../../services/nguoidung.services";
+import useViewPort from "../../hooks/useViewPort";
 
 export const dataChiTietCongViec = createContext();
 
@@ -48,9 +49,9 @@ const DetailTemplate = () => {
       <dataChiTietCongViec.Provider value={chiTiet}>
         <HeaderTemplate />
         <div className="container my-10">
-          <div className="flex gap-[58px]">
+          <div className="flex lg:flex-row  space-x-6 ">
             {/* Thông tin chi tiết */}
-            <div className="w-3/5">
+            <div className="lg:w-3/5 w-full">
               <IntroduceDetails user={user} />
 
               {/* Giới thiệu về khóa học */}
@@ -70,7 +71,7 @@ const DetailTemplate = () => {
             </div>
 
             {/* Các gói */}
-            <div className="w-2/5">
+            <div className=" w-2/5 lg:block hidden ">
               <PackageDetails />
             </div>
           </div>

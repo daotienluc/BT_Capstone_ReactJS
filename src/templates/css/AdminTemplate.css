@@ -1,0 +1,24 @@
+.sider-content .ant-menu {
+  background-color: unset;
+}
+.sider-content .ant-menu svg {
+  fill: white;
+  width: 16px;
+  height: 16px;
+}
+.sider-content .ant-menu a {
+  color: white;
+  font-weight: 500;
+}
+.sider-content .ant-menu .item-active {
+  background-color: red;
+}
+.sider-content .ant-menu .ant-menu-item-active {
+  background-color: unset !important;
+}
+.sider-content .ant-menu .ant-menu-item-active a {
+  @apply text-white;
+}
+.sider-content .ant-menu .ant-menu-item-selected {
+  background-color: unset;
+}/*# sourceMappingURL=AdminTemplate.css.map */

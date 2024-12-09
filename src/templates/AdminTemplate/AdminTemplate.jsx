@@ -11,41 +11,52 @@ import Icons from "../../components/Icons";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { pathDefault } from "../../common/path";
 import "./AdminTemplate.scss";
+import useViewPort from "../../hooks/useViewPort";
 
 const { Header, Sider, Content } = Layout;
 const AdminTemplate = () => {
+  const { width } = useViewPort();
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  // useEffect(() => {
-  //   const dataString = localStorage.getItem("userInfo");
-  //   if (!dataString) {
-  //     window.location.href = pathDefault.signIn;
-  //   } else {
-  //     const data = JSON.parse(dataString);
-  //     if (!data.user.role !== "ADMIN") {
-  //       window.location.href = pathDefault.homePage;
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    // kiểm tra xem người dùng có đăng nhập chưa
+    const dataString = localStorage.getItem("userInfo");
+    if (!dataString) {
+      // nếu như chjua có đăng nhập thì chuyển hướng về trang login
+      window.location.href = pathDefault.signIn;
+    } else {
+      // kiểm tra xem role có phải là admin hay không
+      const data = JSON.parse(dataString);
+      if (data.user.role !== "ADMIN") {
+        // chuyển hướng người dùng về trang chủ
+        window.location.href = pathDefault.homePage;
+      }
+    }
+  }, []);
+  useEffect(() => {
+    if (width < 1024) {
+      setCollapsed(true);
+    }
+  }, [width]);
   return (
     <Layout className="min-h-screen">
       <Sider
         width={250}
-        className=" sider-content"
+        className="sider-content "
         trigger={null}
         collapsible
         collapsed={collapsed}
       >
+        {console.log("Collapsed value:", collapsed)}
         <div className="demo-logo-vertical h-20 flex items-center justify-center">
-          <Icons.logo />
+          {collapsed ? <Icons.icon /> : <Icons.logo />}
         </div>
         <Menu
           mode="inline"
-          theme="dark"
           items={[
             {
               key: "1",

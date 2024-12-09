@@ -10,7 +10,7 @@ import * as animationData from "./../../assets/animation/loginAnimation.json";
 import { useFormik } from "formik";
 import { authService } from "../../services/auth.service";
 import { NotificationContext } from "../../App";
-import * as yup from "yup";
+import * as Yup from "yup";
 
 const SignUp = () => {
   const handleNotification = useContext(NotificationContext);
@@ -34,11 +34,13 @@ const SignUp = () => {
         password: "",
       },
       onSubmit: (values) => {
+        console.log(values);
         authService
           .signUp(values)
           .then((res) => {
             handleNotification("success", "Đăng ký thành công", 3000);
             navigate(pathDefault.signIn);
+            console.log(res);
           })
           .catch((err) => {
             console.log(err);
@@ -56,12 +58,12 @@ const SignUp = () => {
     });
 
   return (
-    <div className="grid lg:grid-cols-3 grid-cols-1 lg:h-screen py-10">
-      <div className="hidden lg:block col-span-2 h-full">
+    <div className="h-screen grid lg:grid-cols-3 py-10">
+      <div className="signIn_animation col-span-1 lg:col-span-2  h-full">
         {/* Animation */}
-        <Lottie options={defaultOptions} height={600} width={990} />
+        <Lottie options={defaultOptions} height={"65%"} width={"100%"} />
       </div>
-      <div className="signIn_form h-full px-10 flex flex-col justify-between mx-auto lg:mx-0 w-full lg:w-auto">
+      <div className="signIn_form h-full px-10 flex flex-col items-center  lg:min-h-screen">
         {/* Logo and back to homePage */}
         <div className="flex justify-between items-center">
           <Icons.logo />

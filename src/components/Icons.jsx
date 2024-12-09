@@ -1,3 +1,4 @@
+import { Image } from "antd";
 import React from "react";
 
 const Icons = {
@@ -16,6 +17,9 @@ const Icons = {
         <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z" />
       </g>
     </svg>
+  ),
+  icon: () => (
+    <img src="https://fiverr-res.cloudinary.com/npm-assets/layout-service/favicon-32x32.8f21439.png" />
   ),
 };
 

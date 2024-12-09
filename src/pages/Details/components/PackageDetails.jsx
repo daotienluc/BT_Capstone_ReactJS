@@ -52,11 +52,11 @@ const PackageDetails = () => {
             </button>
           </div>
           <div className="border-2">
-            <div className="flex">
+            <div className="flex space-x-3">
               {["Basic", "Standard", "Premium"].map((pkg) => (
                 <button
                   key={pkg}
-                  className={`w-36 h-16 border-b-2 font-bold ${
+                  className={`w-36  h-16 border-b-2 font-bold ${
                     selectedPackage === pkg
                       ? "text-black border-b-4"
                       : "text-gray-500"

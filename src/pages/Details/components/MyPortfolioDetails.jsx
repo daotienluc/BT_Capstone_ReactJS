@@ -20,7 +20,7 @@ const MyPortfolioDetails = () => {
           </div>
         </div>
         <div className="flex justify-center space-y-3 flex-col">
-          <h2 className="font-bold text-xl">7B CONSTRUCTION</h2>
+          <h2 className="font-bold lg:text-xl text-sm">7B CONSTRUCTION</h2>
           <p>7B CONSTRUCTION is a general contracting company. Our Client</p>
           <div>
             <button className="px-4 py-1 border-2 rounded-3xl">
