@@ -10,11 +10,12 @@ import { Button, Layout, Menu, theme } from "antd";
 import Icons from "../../components/Icons";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { pathDefault } from "../../common/path";
-import "./adminTemplate.scss";
+import "./AdminTemplate.scss";
 import useViewPort from "../../hooks/useViewPort";
 
 const { Header, Sider, Content } = Layout;
 const AdminTemplate = () => {
+  const { width } = useViewPort();
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -36,18 +37,16 @@ const AdminTemplate = () => {
       }
     }
   }, []);
-  const { width } = useViewPort();
   useEffect(() => {
     if (width < 1024) {
       setCollapsed(true);
     }
   }, [width]);
-
   return (
     <Layout className="min-h-screen">
       <Sider
         width={250}
-        className="sider-content"
+        className="sider-content "
         trigger={null}
         collapsible
         collapsed={collapsed}

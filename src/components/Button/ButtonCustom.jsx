@@ -24,8 +24,8 @@ export const ButtonOutline = ({
       onClick={onClick}
       className={`py-1 px-3 font-semibold duration-200 border border-green-500 rounded-md hover:bg-green-600 hover:text-white ${className}`}
     >
-      {icon ? <span className="mr-2">{icon}</span> : null}
       {content}
+      {icon ? <span className="mr-2">{icon}</span> : null}
     </button>
   );
 };

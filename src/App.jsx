@@ -10,6 +10,8 @@ import ManagerUser from "./templates/AdminTemplate/ManagerUser/ManagerUser";
 // import ManagerJob from "./templates/AdminTemplate/ManagerJob/ManagerJob";
 import ManagerComment from "./templates/AdminTemplate/ManagerComment/ManagerComment";
 import SignUp from "./pages/SignUp/SignUp";
+import SearchResults from "./pages/SearchResults/SearchResults";
+import DetailTemplate from "./pages/Details/DetailTemplate";
 
 export const NotificationContext = createContext();
 
@@ -34,6 +36,15 @@ const arrRoutes = [
   {
     path: pathDefault.signUp,
     element: <SignUp />,
+  },
+
+  {
+    path: pathDefault.SearchResults,
+    element: <SearchResults />,
+  },
+  {
+    path: pathDefault.Details,
+    element: <DetailTemplate />,
   },
 
   {

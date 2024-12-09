@@ -7,12 +7,12 @@ import { Input } from "antd";
 import { ButtonOutline } from "../../components/Button/ButtonCustom";
 import Lottie from "react-lottie";
 import * as animationData from "./../../assets/animation/loginAnimation.json";
-import * as Yup from "yup";
 import { useFormik } from "formik";
 import { authService } from "../../services/auth.service";
 import { NotificationContext } from "../../App";
 import { useDispatch } from "react-redux";
 import { handleUpdateUser } from "../../redux/Slice/User.Slice";
+import * as Yup from "yup";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -60,14 +60,15 @@ const SignIn = () => {
   };
 
   return (
-    <div className="h-screen grid grid-cols-3 py-10">
-      <div className="signIn_animation col-span-2 h-full">
+    <div className="h-screen grid  lg:grid-cols-3 py-10">
+      <div className="signIn_animation  col-span-1 lg:col-span-2  h-full">
         {/* Animation */}
-        <Lottie options={defaultOptions} height={600} width={990} />
+        <Lottie options={defaultOptions} height={"65%"} width={"100%"} />
       </div>
-      <div className="signIn_form h-full px-10 flex flex-col justify-between">
+
+      <div className="signIn_form h-full px-10 flex flex-col items-center  lg:min-h-screen ">
         {/* Logo and back to homePage */}
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center py-5 ">
           <Icons.logo />
           <Link to={pathDefault.homePage}>
             <LeftOutlined /> Go back
