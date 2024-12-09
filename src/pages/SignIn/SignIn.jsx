@@ -76,7 +76,7 @@ const SignIn = () => {
         </div>
 
         {/* Form */}
-        <div>
+        <div className="mt-10 lg:mt-0">
           <h1 className="text-4xl font-semibold">Trang đăng nhập</h1>
           <p className="text-sm font-semibold text-gray-400 pb-6 pt-2">
             Nhập Email để bắt đầu truy cập

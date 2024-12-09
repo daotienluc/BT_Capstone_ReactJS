@@ -47,12 +47,13 @@ const SignUp = () => {
             handleNotification("error", err.response.data.message);
           });
       },
-      validationSchema: Yup.object({
-        name: Yup.string().required("Vui lòng không bỏ trống"),
-        email: Yup.string()
+      validationSchema: yup.object({
+        name: yup.string().required("Vui lòng không bỏ trống"),
+        email: yup
+          .string()
           .email("Vui lòng nhập đúng định dạng Email")
           .required("Vui lòng không bỏ trống"),
-        password: Yup.string().required("Vui lòng không bỏ trống"),
+        password: yup.string().required("Vui lòng không bỏ trống"),
       }),
     });
 
@@ -72,7 +73,7 @@ const SignUp = () => {
         </div>
 
         {/* Form */}
-        <div>
+        <div className="mt-10 lg:mt-0">
           <h1 className="text-4xl font-semibold">Trang đăng ký</h1>
           <p className="text-sm font-semibold text-gray-400 pb-6 pt-2">
             Nhập Email để bắt đầu đăng ký
