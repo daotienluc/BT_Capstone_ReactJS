@@ -61,12 +61,12 @@ const SignIn = () => {
   };
 
   return (
-    <div className="h-screen grid grid-cols-3 py-10">
-      <div className="signIn_animation col-span-2 h-full">
+    <div className="grid lg:grid-cols-3 grid-cols-1 lg:h-screen py-10">
+      <div className="hidden lg:block col-span-2 h-full">
         {/* Animation */}
         <Lottie options={defaultOptions} height={600} width={990} />
       </div>
-      <div className="signIn_form h-full px-10 flex flex-col justify-between">
+      <div className="signIn_form h-full px-10 flex flex-col justify-between mx-auto lg:mx-0 w-full lg:w-auto">
         {/* Logo and back to homePage */}
         <div className="flex justify-between items-center">
           <Icons.logo />
@@ -76,7 +76,7 @@ const SignIn = () => {
         </div>
 
         {/* Form */}
-        <div>
+        <div className="mt-10 lg:mt-0">
           <h1 className="text-4xl font-semibold">Trang đăng nhập</h1>
           <p className="text-sm font-semibold text-gray-400 pb-6 pt-2">
             Nhập Email để bắt đầu truy cập

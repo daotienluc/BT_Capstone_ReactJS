@@ -36,9 +36,9 @@ const Services = () => {
 
   return (
     <div className="container">
-      <div className="grid grid-cols-3 gap-5 md:grid-cols-4 lg:grid-cols-9">
+      <div className="grid grid-cols-3 gap-5 md:grid-cols-4 lg:grid-cols-9 ">
         {skill.splice(0, 9).map((item, index) => (
-          <div key={index}>
+          <div key={index} className="items">
             <ServicesItem
               icon={skillIcons[item.tenSkill] || <QuestionOutlined />}
               content={item.tenSkill}
