@@ -47,19 +47,18 @@ const SignUp = () => {
             handleNotification("error", err.response.data.message);
           });
       },
-      validationSchema: yup.object({
-        name: yup.string().required("Vui lòng không bỏ trống"),
-        email: yup
-          .string()
+      validationSchema: Yup.object({
+        name: Yup.string().required("Vui lòng không bỏ trống"),
+        email: Yup.string()
           .email("Vui lòng nhập đúng định dạng Email")
           .required("Vui lòng không bỏ trống"),
-        password: yup.string().required("Vui lòng không bỏ trống"),
+        password: Yup.string().required("Vui lòng không bỏ trống"),
       }),
     });
 
   return (
     <div className="h-screen grid lg:grid-cols-3 py-10">
-      <div className="signIn_animation col-span-1 lg:col-span-2  h-full">
+      <div className="signIn_animation hidden lg:col-span-2 lg:block  h-full">
         {/* Animation */}
         <Lottie options={defaultOptions} height={"65%"} width={"100%"} />
       </div>
