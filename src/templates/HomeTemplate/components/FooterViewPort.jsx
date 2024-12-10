@@ -104,49 +104,6 @@ const FooterViewPort = () => {
   ];
   return (
     <>
-      {/* <Collapse />;
-      <Collapse>
-        <Panel header="Categories" key="1">
-          <ul className="space-y-4 font-medium">
-            <li>Graphics & Design</li>
-            <li>Digital Marketing</li>
-            <li>Writing & Translation</li>
-            <li>Video & Animation</li>
-            <li>Music & Audio</li>
-            <li>Programming & Tech</li>
-            <li>AI Services</li>
-            <li>Consulting</li>
-            <li>Data</li>
-            <li>Business</li>
-            <li>Personal Growth & Hobbies</li>
-            <li>Photography</li>
-            <li>Finance</li>
-            <li>End-to-End Projects</li>
-            <li>Service Catalog</li>
-          </ul>
-        </Panel>
-        <Panel header="For Clients" key="2">
-          <ul className="space-y-4 font-medium">
-            <li>How Fiverr Works</li>
-            <li>Customer Success Stories</li>
-            <li>Trust & Safety</li>
-            <li>Quality Guide</li>
-            <li>Fiverr Learn</li>
-            <li>Fiverr Guides</li>
-            <li>Fiverr Answers</li>
-          </ul>
-        </Panel>
-        <Panel header="For Freelancers" key="3">
-          <ul className="space-y-4 font-medium">
-            <li>Become a Fiverr Freelancer</li>
-            <li>Become an Agency</li>
-            <li>Kickstart</li>
-            <li>Community Hub</li>
-            <li>Forum</li>
-            <li>Events</li>
-          </ul>
-        </Panel>
-      </Collapse> */}
       <Collapse>
         {items.map((item) => (
           <Panel header={item.label} key={item.key}>
@@ -159,8 +116,8 @@ const FooterViewPort = () => {
           <Icons.logo />
           <p>© Fiverr International Ltd. 2024</p>
         </div>
-        <div className="flex justify-center space-x-5 text-sm">
-          <div className="space-x-5 text-2xl mr-5">
+        <div className="flex   justify-center space-x-5 text-sm">
+          <div className="space-x-3  text-xl   mr-0">
             <TikTokOutlined />
             <InstagramOutlined />
             <LinkedinOutlined />
