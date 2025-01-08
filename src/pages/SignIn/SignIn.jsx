@@ -12,7 +12,7 @@ import { authService } from "../../services/auth.service";
 import { NotificationContext } from "../../App";
 import { useDispatch } from "react-redux";
 import { handleUpdateUser } from "../../redux/Slice/User.Slice";
-import * as Yup from "yup";
+import * as yup from "yup";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -42,11 +42,12 @@ const SignIn = () => {
           });
       },
       // validationSchema
-      validationSchema: Yup.object({
-        email: Yup.string()
+      validationSchema: yup.object({
+        email: yup
+          .string()
           .email("Vui lòng nhập đúng định dạng Email")
           .required("Vui lòng không bỏ trống"),
-        password: Yup.string().required("Vui lòng không bỏ trống"),
+        password: yup.string().required("Vui lòng không bỏ trống"),
       }),
     });
 
@@ -60,15 +61,14 @@ const SignIn = () => {
   };
 
   return (
-    <div className="h-screen grid  lg:grid-cols-3 py-10">
-      <div className="signIn_animation  col-span-1 lg:col-span-2  h-full">
+    <div className="grid lg:grid-cols-3 grid-cols-1 lg:h-screen py-10">
+      <div className="hidden lg:block col-span-2 h-full">
         {/* Animation */}
-        <Lottie options={defaultOptions} height={"65%"} width={"100%"} />
+        <Lottie options={defaultOptions} height={600} width={990} />
       </div>
-
-      <div className="signIn_form h-full px-10 flex flex-col items-center  lg:min-h-screen ">
+      <div className="signIn_form h-full px-10 flex flex-col justify-between mx-auto lg:mx-0 w-full lg:w-auto">
         {/* Logo and back to homePage */}
-        <div className="flex justify-between items-center py-5 ">
+        <div className="flex justify-between items-center">
           <Icons.logo />
           <Link to={pathDefault.homePage}>
             <LeftOutlined /> Go back
