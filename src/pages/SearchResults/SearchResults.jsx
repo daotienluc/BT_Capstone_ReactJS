@@ -33,17 +33,17 @@ const SearchResults = () => {
         <h2 className="text-3xl py-10">
           Results for <span className="font-bold">{keyword}</span>
         </h2>
-        <div className="flex justify-between">
-          <div className="space-x-3">
+        <div className="flex flex-col lg:flex-row justify-center lg:justify-between ">
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-4  items-center justify-center">
             <DropdownSearchResults buttonContent="Category" />
             <DropdownSearchResults buttonContent="Service options" />
             <DropdownSearchResults buttonContent="Seller details" />
             <DropdownSearchResults buttonContent="Budget" />
             <DropdownSearchResults buttonContent="Delivery time" />
-          </div>
-          <div className="flex items-center space-x-3">
-            <Switch />
-            <p>Pro services</p>
+            <div className="  flex space-x-3">
+              <Switch className=" items-center" />
+              <p>Pro services</p>
+            </div>
           </div>
         </div>
         <div className="flex justify-between mt-10 mb-5">
